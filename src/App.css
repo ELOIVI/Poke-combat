@@ -1,0 +1,636 @@
+/* ===== POKÉMON COMBAT STYLES ===== */
+
+/* ===== POKEMON-STYLE TYPOGRAPHY ===== */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@600;700;800;900&display=swap');
+
+h1, h2, h3 {
+  font-family: 'Fredoka One', cursive;
+  color: #2c5aa0;
+  text-shadow: 3px 3px 0px #ffde00, -1px -1px 0px #ffde00, 1px -1px 0px #ffde00, -1px 1px 0px #ffde00;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2.2rem;
+  margin-bottom: 0.8rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+}
+
+/* Info text should be bold and chunky */
+.info-text, .stat-card p, .character-info__name {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+#root {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* ===== CHARACTER LIST GRID ===== */
+.character-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+/* ===== POKEMON CARD STYLES ===== */
+.character {
+  background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  border: 3px solid transparent;
+  position: relative;
+  overflow: hidden; 
+}
+
+.character:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.character.selected {
+  border-color: #ffd700;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  transform: scale(1.02);
+}
+
+/* ===== POKEMON TYPE BACKGROUNDS ===== */
+.character.fire { 
+  background: linear-gradient(135deg, var(--fire) 0%, #ff8f5a 100%);
+  color: white;
+}
+.character.water { 
+  background: linear-gradient(135deg, var(--water) 0%, #7db8ff 100%);
+  color: white;
+}
+.character.grass { 
+  background: linear-gradient(135deg, var(--grass) 0%, #95e895 100%);
+  color: #333;
+}
+.character.electric { 
+  background: linear-gradient(135deg, var(--electric) 0%, #ffe066 100%);
+  color: #333;
+}
+.character.psychic { 
+  background: linear-gradient(135deg, var(--psychic) 0%, #ff8ff5 100%);
+  color: white;
+}
+.character.ice { 
+  background: linear-gradient(135deg, var(--ice) 0%, #c1f0ff 100%);
+  color: #333;
+}
+.character.dragon { 
+  background: linear-gradient(135deg, var(--dragon) 0%, #a871d4 100%);
+  color: white;
+}
+.character.dark { 
+  background: linear-gradient(135deg, var(--dark) 0%, #7a7a7a 100%);
+  color: white;
+}
+.character.fairy { 
+  background: linear-gradient(135deg, var(--fairy) 0%, #ffadd6 100%);
+  color: #333;
+}
+.character.fighting { 
+  background: linear-gradient(135deg, var(--fighting) 0%, #e85555 100%);
+  color: white;
+}
+.character.poison { 
+  background: linear-gradient(135deg, var(--poison) 0%, #bbb5fe 100%);
+  color: white;
+}
+.character.ground { 
+  background: linear-gradient(135deg, var(--ground) 0%, #daa76a 100%);
+  color: white;
+}
+.character.flying { 
+  background: linear-gradient(135deg, var(--flying) 0%, #96d0ff 100%);
+  color: #333;
+}
+.character.bug { 
+  background: linear-gradient(135deg, var(--bug) 0%, #8bc56c 100%);
+  color: white;
+}
+.character.rock { 
+  background: linear-gradient(135deg, var(--rock) 0%, #a67c52 100%);
+  color: white;
+}
+.character.ghost { 
+  background: linear-gradient(135deg, var(--ghost) 0%, #b574c4 100%);
+  color: white;
+}
+.character.normal { 
+  background: linear-gradient(135deg, var(--normal) 0%, #eeeeee 100%);
+  color: #333;
+}
+.character.steel { 
+  background: linear-gradient(135deg, var(--steel) 0%, #9ba3a5 100%);
+  color: white;
+}
+
+/* ===== CHARACTER INFO STYLES ===== */
+.character-info {
+  text-align: center;
+}
+
+.character-info__name {
+  margin: 0 0 1rem 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: capitalize;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-family: 'Nunito', sans-serif;
+}
+
+.character-info__img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 50%, transparent 70%);
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Keep hover effect only for character cards in the list */
+.character .character-info__img:hover {
+  transform: scale(1.1);
+}
+
+.character-info__info {
+  font-style: italic;
+  margin: 0.5rem 0;
+  opacity: 0.9;
+}
+
+/* ===== BUTTONS AND LINKS ===== */
+.more-info {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  text-decoration: none;
+  border-radius: 8px;
+  margin: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.more-info:hover {
+  background: rgba(255, 255, 255, 1);
+  color: #333;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.character button {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.character button:hover {
+  background: rgba(0, 0, 0, 0.8);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: scale(1.05);
+}
+
+.character.selected button {
+  background: rgba(255, 215, 0, 0.9);
+  color: #333;
+  border-color: #ffd700;
+}
+
+.character.selected button:hover {
+  background: rgba(255, 215, 0, 1);
+}
+
+/* ===== SELECTION DISPLAY ===== */
+.character-list + div {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+  backdrop-filter: blur(10px);
+}
+
+/* ===== COMBAT BUTTON ===== */
+button[onclick] {
+  background: linear-gradient(135deg, var(--pokemon-red) 0%, var(--pokemon-orange) 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+button[onclick]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1200px) {
+  .character-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .character-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+  
+  #root {
+    padding: 1rem;
+  }
+  
+  .character {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .character-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== CHARACTER DETAIL PAGE STYLES ===== */
+.character-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.character-detail h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.character-detail .character-info {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.character-detail .character-info__img {
+  width: 200px;
+  height: 200px;
+  border: 5px solid #fff;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  transition: none; /* Remove hover effect */
+}
+
+.character-detail .character-info__name {
+  font-size: 2.2rem;
+  color: #333;
+  text-shadow: none;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  text-shadow: none;
+  color: white;
+}
+
+.stat-card p {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 900;
+  font-family: 'Nunito', sans-serif;
+}
+
+.back-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  color: white;
+}
+
+/* ===== LOAD MORE BUTTON ===== */
+.load-more-container {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.load-more-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 1.2rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.load-more-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.load-more-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.load-more-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.load-more-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ===== COMBAT ANIMATION STYLES ===== */
+.combat-arena {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.combat-arena::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.combat-arena h1 {
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-shadow: 3px 3px 0px #333, -1px -1px 0px #333, 1px -1px 0px #333, -1px 1px 0px #333;
+}
+
+@keyframes titlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.fighters-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3rem 0;
+  position: relative;
+}
+
+.fighter {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  min-width: 200px;
+  transition: all 0.3s ease;
+}
+
+.fighter.attacking {
+  animation: attackMove 1s ease-in-out;
+  z-index: 10;
+}
+
+.fighter.hit {
+  animation: hitShake 0.6s ease-in-out;
+}
+
+.fighter.winner {
+  animation: victoryDance 2s ease-in-out infinite;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+}
+
+@keyframes attackMove {
+  0% { transform: translateX(0) scale(1); }
+  30% { transform: translateX(50px) scale(1.1); }
+  70% { transform: translateX(50px) scale(1.1); }
+  100% { transform: translateX(0) scale(1); }
+}
+
+@keyframes hitShake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+@keyframes victoryDance {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(2deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  75% { transform: translateY(-5px) rotate(-2deg); }
+}
+
+.fighter img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  margin-bottom: 1rem;
+}
+
+.fighter h3 {
+  margin: 0.5rem 0;
+  color: #333;
+  font-size: 1.2rem;
+  text-shadow: none;
+}
+
+.fighter .attack-stat {
+  background: #667eea;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.vs-indicator {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 1rem 2rem;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes vsRotate {
+  0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+  50% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.combat-log {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin-top: 2rem;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.combat-log h3 {
+  margin: 0 0 1rem 0;
+  color: #ffd700;
+  text-shadow: none;
+}
+
+.log-entry {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  animation: logAppear 0.5s ease-in-out;
+}
+
+.log-entry:last-child {
+  border-bottom: none;
+}
+
+@keyframes logAppear {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.winner-announcement {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+  border-radius: 15px;
+  animation: winnerGlow 2s ease-in-out infinite;
+}
+
+.winner-announcement h2 {
+  margin: 0;
+  color: #333;
+  font-size: 2rem;
+  text-shadow: none;
+}
+
+@keyframes winnerGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.8); }
+}
+
+.restart-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-weight: bold;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.restart-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
