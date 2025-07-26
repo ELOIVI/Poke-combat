@@ -1,0 +1,19 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main Pokeball body -->
+  <circle cx="100" cy="100" r="95" fill="#fff" stroke="#333" stroke-width="3"/>
+  
+  <!-- Top red half -->
+  <path d="M 5 100 A 95 95 0 0 1 195 100 Z" fill="#e53e3e" stroke="#333" stroke-width="3"/>
+  
+  <!-- Center black band -->
+  <rect x="5" y="90" width="190" height="20" fill="#333" stroke="#333" stroke-width="1.5"/>
+  
+  <!-- Center circle (outer) -->
+  <circle cx="100" cy="100" r="25" fill="#333" stroke="#333" stroke-width="3"/>
+  
+  <!-- Center circle (inner white) -->
+  <circle cx="100" cy="100" r="20" fill="#fff" stroke="#333" stroke-width="3"/>
+  
+  <!-- Center circle (inner button) -->
+  <circle cx="100" cy="100" r="12" fill="#f7fafc" stroke="#333" stroke-width="3"/>
+</svg>
